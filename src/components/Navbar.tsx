@@ -51,41 +51,46 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <a href="#home" className="text-xl font-bold tracking-tighter">
-              RS<span className="text-primary">.</span>
+            <a href="#home" className="flex items-center gap-2 group">
+              <span className="font-mono font-bold text-xs bg-foreground text-background px-2 py-1 rounded-md tracking-tight group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                RS
+              </span>
+              <span className="font-semibold text-sm tracking-tight text-foreground hidden sm:inline">
+                rohanshetty<span className="text-primary">.dev</span>
+              </span>
             </a>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <div className="flex space-x-6">
+            <div className="flex space-x-6 items-center">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.substring(1) ? 'text-primary' : 'text-muted-foreground'}`}
+                  className={`text-xs font-mono uppercase tracking-wider transition-colors hover:text-foreground ${activeSection === item.href.substring(1) ? 'text-primary font-semibold' : 'text-muted-foreground'}`}
                 >
                   {item.name}
                 </a>
               ))}
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-full hover:bg-muted transition-colors text-foreground"
+                className="p-2 rounded-lg hover:bg-muted border border-transparent hover:border-border transition-colors text-foreground"
                 aria-label="Toggle Theme"
               >
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
               
               <a
                 href={portfolioData.personal.resumeUrl}
                 download
-                className="flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium text-sm hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-3.5 py-1.5 rounded-lg font-mono text-xs font-medium hover:bg-primary/90 transition-all active:scale-95 shadow-xs"
               >
-                <Download className="w-4 h-4" />
-                Resume
+                <Download className="w-3.5 h-3.5" />
+                <span>Resume.pdf</span>
               </a>
             </div>
           </div>
@@ -131,25 +136,28 @@ export function Navbar() {
           exit={{ opacity: 0, scaleY: 0.95 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-4 pt-3 pb-5 space-y-1">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all ${activeSection === item.href.substring(1) ? 'text-primary bg-muted translate-x-1' : 'text-foreground hover:text-primary hover:bg-muted'}`}
+                className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${activeSection === item.href.substring(1) ? 'text-primary bg-muted font-semibold' : 'text-foreground/80 hover:text-primary hover:bg-muted/50'}`}
               >
-                {item.name}
+                <span>{item.name}</span>
+                <span className="text-muted-foreground/40 text-[10px]">→</span>
               </a>
             ))}
-            <a
-              href={portfolioData.personal.resumeUrl}
-              download
-              className="mt-4 flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium text-base hover:bg-primary/90 transition-all active:scale-95 w-full"
-            >
-              <Download className="w-5 h-5" />
-              Download Resume
-            </a>
+            <div className="pt-3 mt-2 border-t border-border/50">
+              <a
+                href={portfolioData.personal.resumeUrl}
+                download
+                className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-lg font-mono text-xs font-medium hover:bg-primary/90 transition-all active:scale-95 w-full shadow-xs"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Resume (PDF)</span>
+              </a>
+            </div>
           </div>
         </motion.div>
       )}

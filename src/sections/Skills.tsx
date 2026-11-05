@@ -21,33 +21,42 @@ export function Skills() {
   };
 
   return (
-    <Section id="skills" title="Technical Skills" className="bg-muted/30">
+    <Section 
+      id="skills" 
+      title="Technical Stack & Expertise" 
+      index="// 02. SKILLS"
+      subtitle="Languages, architectures, distributed tools, and libraries I use to build scalable software."
+      className="bg-muted/20"
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category, idx) => (
           <motion.div
             key={category}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+            transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative p-6 rounded-2xl bg-card border border-border shadow-xs hover:border-primary/40 hover:shadow-md transition-all duration-200"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <h3 className="font-semibold text-lg text-foreground mb-5 relative z-10">{category}</h3>
+            <div className="flex items-center justify-between mb-4 border-b border-border/40 pb-3">
+              <h3 className="font-bold text-base sm:text-lg text-foreground tracking-tight">{category}</h3>
+              <span className="font-mono text-[11px] text-primary/80 font-semibold">
+                0{idx + 1}
+              </span>
+            </div>
+
             <motion.ul 
               variants={container}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="flex flex-wrap gap-2.5 relative z-10"
+              className="flex flex-wrap gap-2"
             >
               {portfolioData.skills[category].map((skill) => (
                 <motion.li
                   key={skill}
                   variants={item}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-3 py-1.5 bg-muted/50 text-foreground rounded-lg text-sm font-medium border border-border/50 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-colors cursor-default"
+                  className="font-mono text-xs px-2.5 py-1.5 bg-muted/60 text-foreground/90 rounded-md border border-border/70 hover:border-primary/40 hover:bg-muted transition-colors cursor-default select-none font-medium"
                 >
                   {skill}
                 </motion.li>

@@ -24,63 +24,89 @@ export function Projects() {
   };
 
   return (
-    <Section id="projects" title="Featured Projects">
+    <Section 
+      id="projects" 
+      title="Featured Engineering Projects" 
+      index="// 03. PROJECTS"
+      subtitle="Selected full-stack and distributed systems built with scalable architecture, caching, and AI integrations."
+    >
       <motion.div 
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.1 }}
-        className="space-y-12"
+        className="space-y-8"
       >
-        {portfolioData.projects.map((project) => (
+        {portfolioData.projects.map((project, index) => (
           <motion.div
             key={project.name}
             variants={item}
-            className="group relative flex flex-col lg:flex-row gap-8 bg-card border border-border/60 p-6 md:p-8 rounded-3xl shadow-sm hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
+            className="group relative bg-card border border-border/80 p-6 sm:p-8 md:p-10 rounded-2xl shadow-xs hover:border-primary/50 hover:shadow-lg transition-all duration-300"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/[0.03] to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-            
-            <div className="flex-1 flex flex-col justify-between relative z-10">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">{project.name}</h3>
-                  <span className="text-sm font-medium text-muted-foreground bg-muted/50 px-3 py-1 rounded-full whitespace-nowrap hidden sm:inline-block border border-border/50">
-                    {project.period}
-                  </span>
+            <div className="flex flex-col gap-6">
+              {/* Header row: Index, title, period */}
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-border/50 pb-5">
+                <div>
+                  <div className="font-mono text-xs text-primary font-semibold tracking-wider mb-1">
+                    PROJECT // 0{index + 1}
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                    {project.name.split('–')[0].trim()}
+                    {project.name.includes('–') && (
+                      <span className="font-normal text-muted-foreground text-lg sm:text-xl block sm:inline sm:ml-2">
+                        — {project.name.split('–')[1].trim()}
+                      </span>
+                    )}
+                  </h3>
                 </div>
-                
-                <p className="text-lg text-foreground mb-6 font-medium">
-                  {project.description}
-                </p>
-                
-                <ul className="space-y-3 mb-8">
+                <span className="font-mono text-xs font-medium text-muted-foreground bg-muted/60 px-3 py-1.5 rounded-md border border-border/60 self-start sm:self-auto shrink-0">
+                  {project.period}
+                </span>
+              </div>
+              
+              {/* Description */}
+              <p className="text-base sm:text-lg text-foreground/90 font-normal leading-relaxed">
+                {project.description}
+              </p>
+              
+              {/* Engineering highlights */}
+              <div className="space-y-2.5">
+                <span className="font-mono text-xs uppercase text-muted-foreground tracking-wider font-semibold block">
+                  Key Implementations:
+                </span>
+                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
                   {project.details.map((detail, i) => (
-                    <li key={i} className="flex gap-3 text-muted-foreground">
-                      <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-primary/70 group-hover:bg-primary transition-colors" />
-                      <span>{detail}</span>
+                    <li key={i} className="flex items-start gap-2.5">
+                      <span className="font-mono text-primary text-sm font-semibold select-none mt-0.5">›</span>
+                      <span className="leading-relaxed">{detail}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div>
-                <div className="flex flex-wrap gap-2 mb-8">
+              {/* Technologies and links */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4 border-t border-border/40">
+                <div className="flex flex-wrap gap-2">
                   {project.technologies.map(tech => (
-                    <span key={tech} className="px-3 py-1 bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300 text-xs font-semibold rounded-md border border-border/50 group-hover:border-primary/20">
+                    <span 
+                      key={tech} 
+                      className="font-mono text-xs px-2.5 py-1 bg-muted/60 text-foreground/80 font-medium rounded-md border border-border/60 group-hover:border-primary/30 transition-colors"
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-6">
+                <div className="flex items-center gap-4 shrink-0">
                   {project.githubUrl && project.githubUrl !== '#' && (
                     <a 
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors group/link"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium text-foreground bg-muted/50 hover:bg-muted border border-border hover:border-primary/40 transition-all active:scale-95"
                     >
-                      <Github className="w-5 h-5 group-hover/link:-translate-y-0.5 transition-transform" /> Code
+                      <Github className="w-4 h-4" />
+                      <span>View Source</span>
                     </a>
                   )}
                   {project.liveUrl && project.liveUrl !== '#' && (
@@ -88,9 +114,10 @@ export function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors group/link"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium text-primary-foreground bg-primary hover:bg-primary/90 transition-all active:scale-95 shadow-xs"
                     >
-                      <ExternalLink className="w-5 h-5 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" /> Live Demo
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Live Deployment</span>
                     </a>
                   )}
                 </div>
