@@ -68,9 +68,11 @@ export function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`text-xs font-mono uppercase tracking-wider transition-colors hover:text-foreground ${activeSection === item.href.substring(1) ? 'text-primary font-semibold' : 'text-muted-foreground'}`}
+                  className={`bracket-link text-xs font-mono uppercase tracking-wider transition-colors ${activeSection === item.href.substring(1) ? 'text-primary font-bold' : ''}`}
                 >
-                  {item.name}
+                  <span className="b-char b-left">[</span>
+                  <span>{item.name}</span>
+                  <span className="b-char b-right">]</span>
                 </a>
               ))}
             </div>
