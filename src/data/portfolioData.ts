@@ -140,7 +140,7 @@ export const portfolioData = {
         {
           title: "Real-Time Office Zones & Heatmap",
           caption: "02 · Live Sockets",
-          route: "worksphere-office.vercel.app/employee/OfficeArea",
+          route: "worksphere-office.vercel.app/office-area",
           image: "/assets/projects/worksphere-zones.png",
           type: "image" as const
         },
