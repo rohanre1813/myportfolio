@@ -80,23 +80,34 @@ html {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 1px;
-  background: rgba(120, 120, 140, 0.12);
+  width: 2px;
+  background: rgba(120, 120, 140, 0.15);
   pointer-events: none;
-  z-index: 45;
+  z-index: 55;
 }
-.rail-track-left { left: 16px; }
-.rail-track-right { right: 16px; }
+.rail-track-left { 
+  left: 4px; 
+}
+.rail-track-right { 
+  right: 4px; 
+}
 
-@media (max-width: 900px) {
-  .rail-track-left, .rail-track-right { display: none; }
+@media (min-width: 900px) {
+  .rail-track-left { 
+    left: 16px; 
+    width: 1px;
+  }
+  .rail-track-right { 
+    right: 16px; 
+    width: 1px;
+  }
 }
 
 .rail-fill-left,
 .rail-fill-right {
-  width: 1px;
+  width: 100%;
   height: var(--scroll-pct, 0%);
-  background: linear-gradient(180deg, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0.8) 88%, #2563eb 100%);
+  background: linear-gradient(180deg, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0.85) 88%, #2563eb 100%);
   position: relative;
   transition: height 0.05s linear;
 }
@@ -105,12 +116,12 @@ html {
   content: "";
   position: absolute;
   bottom: -3px;
-  left: -2.5px;
+  left: -2px;
   width: 6px;
   height: 6px;
   border-radius: 9999px;
   background: #2563eb;
-  box-shadow: 0 0 10px 2px rgba(37, 99, 235, 0.7);
+  box-shadow: 0 0 10px 2px rgba(37, 99, 235, 0.8);
 }
 
 /* Bracket Nav Links */
