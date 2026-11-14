@@ -95,7 +95,7 @@ export function ProjectDeviceMockup({ project }: ProjectMockupProps) {
               className="text-foreground/90 truncate hover:text-primary transition-colors"
               title="Open Live Application"
             >
-              {project.liveUrl.replace('https://', '')}
+              {currentSlide.route || project.liveUrl.replace('https://', '')}
             </a>
           </div>
           <RefreshCw className="w-3 h-3 text-muted-foreground/60 shrink-0 ml-2" />

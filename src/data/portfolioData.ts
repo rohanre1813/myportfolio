@@ -1,6 +1,7 @@
 export interface ProjectSlide {
   title: string;
   caption: string;
+  route?: string;
   image?: string;
   type: 'image' | 'architecture';
 }
@@ -75,25 +76,30 @@ export const portfolioData = {
       image: "/assets/projects/jusbill.png",
       gallery: [
         "/assets/projects/jusbill-dashboard.png",
-        "/assets/projects/jusbill-invoice.png"
+        "/assets/projects/jusbill-invoice.png",
+        "/assets/projects/jusbill-analytics.png"
       ],
       slides: [
         {
-          title: "Bills & Sales Overview",
+          title: "Bills & Invoices Ledger",
           caption: "01 · Invoices Ledger",
+          route: "jusbill.online/bills",
           image: "/assets/projects/jusbill-dashboard.png",
           type: "image" as const
         },
         {
           title: "GST Tax Invoice & QR",
           caption: "02 · PDF Generation",
+          route: "jusbill.online/invoice/INV-0012",
           image: "/assets/projects/jusbill-invoice.png",
           type: "image" as const
         },
         {
-          title: "Redis & AWS Architecture",
-          caption: "03 · Performance Telemetry",
-          type: "architecture" as const
+          title: "Inventory & Stock Analytics",
+          caption: "03 · Real-Time Stock",
+          route: "jusbill.online/products",
+          image: "/assets/projects/jusbill-analytics.png",
+          type: "image" as const
         }
       ]
     },
