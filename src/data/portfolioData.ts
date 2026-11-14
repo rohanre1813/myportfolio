@@ -24,7 +24,9 @@ export const portfolioData = {
     codeforces: "https://codeforces.com/profile/Rohanre1813",
     geeksforgeeks: "https://www.geeksforgeeks.org/profile/rohanshet4k27",
     github: "https://github.com/rohanre1813",
-    codolio: "https://codolio.com/profile/Rohanshetty"
+    codolio: "https://codolio.com/profile/Rohanshetty",
+    nimcetRankCard: "https://drive.google.com/file/d/1PzIn4uo3dsd38KlM8PQiRL4AGquprtmw/view?usp=drive_link",
+    pgcetRankPost: "https://lnkd.in/p/gZ9AfyUx"
   },
   education: [
     {

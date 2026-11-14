@@ -65,8 +65,8 @@ export function Achievements() {
       dateOrRank: "Rank 549 (Top 2%)",
       credDetails: "National NIT MCA Entrance Exam",
       skills: "Higher Math, Analytical Reasoning, CS",
-      verifyUrl: "https://www.nitjsr.ac.in/",
-      verifyLabel: "NIT Jamshedpur Track",
+      verifyUrl: portfolioData.links.nimcetRankCard,
+      verifyLabel: "NIMCET Scorecard",
       icon: Trophy
     },
     {
@@ -80,8 +80,8 @@ export function Achievements() {
       dateOrRank: "State Rank 29",
       credDetails: "Post Graduate Common Entrance Test",
       skills: "General CS, Quantitative Aptitude, Logic",
-      verifyUrl: portfolioData.links.linkedin,
-      verifyLabel: "LinkedIn Verification",
+      verifyUrl: portfolioData.links.pgcetRankPost,
+      verifyLabel: "PGCET Rank Post",
       icon: Award
     }
   ];
@@ -169,9 +169,16 @@ export function Achievements() {
 
                   <div className="flex items-center justify-between border-t border-border/60 pt-3">
                     <span className="font-serif text-lg text-foreground">{card.frontTitle}</span>
-                    <span className="font-mono text-[10px] text-emerald-500 font-semibold flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3" /> VERIFIED
-                    </span>
+                    <a
+                      href={card.verifyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="font-mono text-[10px] text-emerald-500 hover:text-emerald-400 font-semibold flex items-center gap-1 hover:underline cursor-pointer"
+                      title={`Open ${card.verifyLabel}`}
+                    >
+                      <CheckCircle2 className="w-3 h-3" /> VERIFIED ↗
+                    </a>
                   </div>
                 </div>
 
