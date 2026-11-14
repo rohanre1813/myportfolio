@@ -125,24 +125,31 @@ export const portfolioData = {
       githubUrl: "https://github.com/rohanre1813/Worksphere-",
       image: "/assets/projects/worksphere.png",
       gallery: [
-        "/assets/projects/worksphere-scanner.png"
+        "/assets/projects/worksphere-scanner.png",
+        "/assets/projects/worksphere-zones.png",
+        "/assets/projects/worksphere-dashboard.png"
       ],
       slides: [
         {
-          title: "Edge Facial Recognition Scanner",
+          title: "Edge Facial Scanner & Attendance",
           caption: "01 · AI Verification",
+          route: "worksphere-office.vercel.app/employee/Scan",
           image: "/assets/projects/worksphere-scanner.png",
           type: "image" as const
         },
         {
-          title: "Real-Time Office Zones",
+          title: "Real-Time Office Zones & Heatmap",
           caption: "02 · Live Sockets",
-          type: "architecture" as const
+          route: "worksphere-office.vercel.app/employee/OfficeArea",
+          image: "/assets/projects/worksphere-zones.png",
+          type: "image" as const
         },
         {
-          title: "Security & RBAC Architecture",
-          caption: "03 · Access Control",
-          type: "architecture" as const
+          title: "Admin Analytics & Time Distribution",
+          caption: "03 · Access Governance",
+          route: "worksphere-office.vercel.app/admin-info",
+          image: "/assets/projects/worksphere-dashboard.png",
+          type: "image" as const
         }
       ]
     },
