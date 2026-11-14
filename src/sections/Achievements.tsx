@@ -35,8 +35,8 @@ export function Achievements() {
       dateOrRank: "Continuous / Active",
       credDetails: "Graphs, Dynamic Programming, Trees",
       skills: "Asymptotic Analysis, Concurrency, Greedy",
-      verifyUrl: portfolioData.links.leetcode,
-      verifyLabel: "LeetCode Profile",
+      verifyUrl: portfolioData.links.codolio,
+      verifyLabel: "Codolio Profile",
       icon: Target
     },
     {
