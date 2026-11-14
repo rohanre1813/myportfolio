@@ -1,3 +1,10 @@
+export interface ProjectSlide {
+  title: string;
+  caption: string;
+  image?: string;
+  type: 'image' | 'architecture';
+}
+
 export const portfolioData = {
   personal: {
     name: "Rohan Shetty",
@@ -68,8 +75,26 @@ export const portfolioData = {
       image: "/assets/projects/jusbill.png",
       gallery: [
         "/assets/projects/jusbill-dashboard.png",
-        "/assets/projects/jusbill-invoice.png",
-        "/assets/projects/jusbill-analytics.png"
+        "/assets/projects/jusbill-invoice.png"
+      ],
+      slides: [
+        {
+          title: "Bills & Sales Overview",
+          caption: "01 · Invoices Ledger",
+          image: "/assets/projects/jusbill-dashboard.png",
+          type: "image" as const
+        },
+        {
+          title: "GST Tax Invoice & QR",
+          caption: "02 · PDF Generation",
+          image: "/assets/projects/jusbill-invoice.png",
+          type: "image" as const
+        },
+        {
+          title: "Redis & AWS Architecture",
+          caption: "03 · Performance Telemetry",
+          type: "architecture" as const
+        }
       ]
     },
     {
@@ -94,9 +119,25 @@ export const portfolioData = {
       githubUrl: "https://github.com/rohanre1813/Worksphere-",
       image: "/assets/projects/worksphere.png",
       gallery: [
-        "/assets/projects/worksphere-scanner.png",
-        "/assets/projects/worksphere-zones.png",
-        "/assets/projects/worksphere-dashboard.png"
+        "/assets/projects/worksphere-scanner.png"
+      ],
+      slides: [
+        {
+          title: "Edge Facial Recognition Scanner",
+          caption: "01 · AI Verification",
+          image: "/assets/projects/worksphere-scanner.png",
+          type: "image" as const
+        },
+        {
+          title: "Real-Time Office Zones",
+          caption: "02 · Live Sockets",
+          type: "architecture" as const
+        },
+        {
+          title: "Security & RBAC Architecture",
+          caption: "03 · Access Control",
+          type: "architecture" as const
+        }
       ]
     },
     {
@@ -123,8 +164,26 @@ export const portfolioData = {
       image: "/assets/projects/docuai.png",
       gallery: [
         "/assets/projects/docuai-search.png",
-        "/assets/projects/docuai-chat.png",
-        "/assets/projects/docuai-pipeline.png"
+        "/assets/projects/docuai-chat.png"
+      ],
+      slides: [
+        {
+          title: "Document Repository & Upload",
+          caption: "01 · PDF Management",
+          image: "/assets/projects/docuai-search.png",
+          type: "image" as const
+        },
+        {
+          title: "RAG Conversational Assistant",
+          caption: "02 · AI Chat Interface",
+          image: "/assets/projects/docuai-chat.png",
+          type: "image" as const
+        },
+        {
+          title: "Pinecone Vector RAG Pipeline",
+          caption: "03 · Embeddings & Retrieval",
+          type: "architecture" as const
+        }
       ]
     }
   ],
